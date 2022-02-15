@@ -6,9 +6,16 @@ import java.util.Scanner;
 public class Question {
     private final String question;
     private final String[] variants;
+
+    public char getCorrectKey() {
+        return correctKey;
+    }
+
     private final char correctKey;
-    private String enteredVariant;
-    private String outputText;
+
+    public void setAnsweredCorrectly(boolean answeredCorrectly) {
+        isAnsweredCorrectly = answeredCorrectly;
+    }
 
     private boolean isAnsweredCorrectly;
 
@@ -22,7 +29,6 @@ public class Question {
         this.correctKey = correctKey;
 
         this.isAnsweredCorrectly = false;
-        this.outputText = "Неправильный";
     }
 
     public void printQuestionAndVariants(int questionsNumber) {
@@ -34,26 +40,4 @@ public class Question {
         }
         System.out.println();
     }
-
-    public void inputKey() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Введите вариант ответа: ");
-        this.enteredVariant = in.nextLine();
-
-        checkInputOption();
-    }
-
-    public void printResult() {
-        System.out.println("Ответ: " + this.outputText);
-        System.out.println("-------------------------\n");
-    }
-
-    private void checkInputOption() {
-        if (Objects.equals(this.enteredVariant, Character.toString(this.correctKey))) {
-            this.isAnsweredCorrectly = true;
-            this.outputText = "Правильный";
-
-        }
-    }
-
 }

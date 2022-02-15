@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -22,7 +24,10 @@ public class Main {
             iteration++;
         }
 
-        TestCore testCore = new TestCore(answers);
+
+        Scanner in = new Scanner(System.in);
+        TestCore testCore = new TestCore(answers, in);
         testCore.testing();
+        in.close();
     }
 }
